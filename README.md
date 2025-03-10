@@ -46,3 +46,27 @@ Ensure you have the following installed:
 - `pages/`: Contains the Page Object Model (POM) classes.
 - `tests/`: Contains the test scripts.
 - `utils/`: Contains utilities.
+
+## Explanation of Approach
+
+### TypeScript
+TypeScript is used for its static typing, which helps catch errors early during development and improves code quality.
+Additionally, TypeScript is natively supported by Playwright, and it is a part of the company tech stack.
+
+### Playwright
+Playwright is chosen for its ability to automate modern web applications across different browsers with ease.
+It provides powerful features for end-to-end testing just out of the box.
+
+### Page Object Model (POM)
+The POM pattern is used to create an abstraction layer between the test scripts and the UI.
+This makes the tests more maintainable and reusable.
+
+### Logging
+The `pino` library is used for logging due to its performance and flexibility.
+The `pino-pretty` is used to format the logs for better readability.
+
+### Reporting
+The project uses the `@playwright/test` built-in reporter to generate test reports.
+
+### CI/CD
+The project is set up to run on GitHub Actions. The CI/CD pipeline is triggered on every push to the `main` branch.
