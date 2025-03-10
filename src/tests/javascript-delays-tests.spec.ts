@@ -10,6 +10,7 @@ test.beforeEach(async ({page}) => {
 
 test('shouldDisplayTextAfterDelay', async ({page}) => {
     const javascriptDelaysPage = new JavascriptDelaysPage(page);
-    await javascriptDelaysPage.clickStartButton();
+
+    await javascriptDelaysPage.startButton.click();
     await expect(javascriptDelaysPage.delayText).toHaveValue('Liftoff!', {timeout: 12000});
 });

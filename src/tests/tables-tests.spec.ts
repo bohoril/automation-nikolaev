@@ -10,6 +10,7 @@ test.beforeEach(async ({page}) => {
 
 test('shouldHaveProductInTable', async ({page}) => {
     const tablesPage = new TablesPage(page);
-    await tablesPage.simpleTable.scrollIntoViewIfNeeded();
-    expect(await tablesPage.validateProductExists('Laptop')).toBeTruthy();
+
+    const isProductInTable = await tablesPage.isProductInTable(tablesPage.simpleTable, 'Laptop');
+    expect(isProductInTable).toBeTruthy();
 });

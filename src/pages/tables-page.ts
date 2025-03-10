@@ -16,12 +16,14 @@ export class TablesPage extends BasePage {
     /**
      * Validates that a product with the specified name exists in the table and logs its price.
      *
+     * @param {Locator} tableLocator - The locator for the table.
      * @param {string} productName - The name of the product to validate.
      * @returns {Promise<boolean>} A promise that resolves to true if the product exists, otherwise false.
      */
-    async validateProductExists(productName: string): Promise<boolean> {
+    async isProductInTable(tableLocator: Locator, productName: string): Promise<boolean> {
         logger.info(`Looking for product: ${productName}`);
-        const rows = this.simpleTable.locator('tbody > tr');
+        await tableLocator.scrollIntoViewIfNeeded();
+        const rows = tableLocator.locator('tbody > tr');
         const rowCount = await rows.count();
         logger.info(`Found ${rowCount} rows in the table`);
 
